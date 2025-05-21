@@ -4,6 +4,7 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/MohamedOuhami/TaskTrackerCLI_GO/models"
@@ -18,6 +19,9 @@ var markAsNotDoneCmd = &cobra.Command{
 	Long:  `A command to mark a task as not done.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
+		if len(args) != 1 {
+			fmt.Println("The marking command takes 1 argument (ID of the task)")
+		}
 		var tasks []models.Task
 		// The arguments
 		taskId := args[0]
@@ -31,7 +35,7 @@ var markAsNotDoneCmd = &cobra.Command{
 
 		for i, task := range tasks {
 			if err != nil {
-				panic("error converting ID to int")
+				fmt.Println("Please enter a valid ID")
 			}
 			if task.Id == taskIdInt {
 				found = true

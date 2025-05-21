@@ -19,6 +19,11 @@ var deleteTaskCmd = &cobra.Command{
 	Long:  `A function to delete a task by giving Its ID and remove It from the database.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
+		if len(args) != 1 {
+			fmt.Println("This command only accepts one argument (ID of the task)")
+			return
+		}
+
 		var tasks []models.Task
 
 		var found = false
@@ -29,7 +34,8 @@ var deleteTaskCmd = &cobra.Command{
 		tasks = utils.GetAllTasks()
 		// Getting the id of the task to delete
 		if idInt, convErr := strconv.Atoi(args[0]); convErr != nil {
-			panic(convErr)
+			fmt.Println("Please provide a valid ID")
+			return
 
 		} else {
 

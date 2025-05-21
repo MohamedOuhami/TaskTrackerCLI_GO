@@ -4,6 +4,7 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/MohamedOuhami/TaskTrackerCLI_GO/models"
@@ -18,8 +19,13 @@ var addTaskCmd = &cobra.Command{
 	Long:  `Create a new task and add it to the tasks JSON file`,
 	Run: func(cmd *cobra.Command, args []string) {
 
+		if len(args) != 1 {
+			fmt.Println(`You need to enter exactly  1 description. If your task is composed of multiple words. Use " " between the words`)
+			return
+		}
 		// Getting the task name from the arguments
 		taskName := args[0]
+
 		// Get the existing data in the json
 		var tasks []models.Task
 
