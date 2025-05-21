@@ -1,6 +1,6 @@
 # 📝 TaskTracker CLI - Built with Go
 
-**TaskTracker CLI** is a simple command-line tool developed in Go to help users manage and keep track of their tasks locally. It supports adding, updating, and tracking tasks with different statuses such as **done**, **in progress**, and **not done**.
+**TaskTracker CLI** is a simple command-line tool developed in Go to help users manage and keep track of their tasks locally. It supports adding, updating, and tracking tasks with different statuses such as **done**, **in progress**, and **not done** as a challenge present in the Roadmap.sh GO roadmap "https://roadmap.sh/projects/task-tracker".
 
 ---
 
